@@ -13,6 +13,8 @@ app.get("/campgrounds", function(req, res){
 		{name: "Broken Bow", image: "https://upload.wikimedia.org/wikipedia/en/b/bd/Broken_bow_lake.jpg"},
 		{name: "White Rock Lake", image: "http://mediad.publicbroadcasting.net/p/kera/files/styles/x_large/public/201806/shutterstock_753593347.jpg"}
 	]
+
+	res.render("campgrounds");
 });
 
 app.listen(process.env.PORT, process.env.IP, function(){
