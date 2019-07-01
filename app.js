@@ -14,7 +14,7 @@ app.get("/campgrounds", function(req, res){
 		{name: "White Rock Lake", image: "http://mediad.publicbroadcasting.net/p/kera/files/styles/x_large/public/201806/shutterstock_753593347.jpg"}
 	]
 
-	res.render("campgrounds");
+	res.render("campgrounds",{campgrounds:campgrounds});
 });
 
 app.listen(process.env.PORT, process.env.IP, function(){
