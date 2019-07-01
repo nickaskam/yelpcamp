@@ -7,6 +7,14 @@ app.get("/", function(req, res){
 	res.render("landing");
 });
 
+app.get("/campgrounds", function(req, res){
+	var campgrounds = [
+		{name: "Grapevine Lake", image: "https://media.nbcdfw.com/images/652*367/Lake-Grapevine.jpg"},
+		{name: "Broken Bow", image: "https://upload.wikimedia.org/wikipedia/en/b/bd/Broken_bow_lake.jpg"},
+		{name: "White Rock Lake", image: "http://mediad.publicbroadcasting.net/p/kera/files/styles/x_large/public/201806/shutterstock_753593347.jpg"}
+	]
+});
+
 app.listen(process.env.PORT, process.env.IP, function(){
 	console.log("the yelpcamp server has started");
 });
