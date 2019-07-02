@@ -20,7 +20,6 @@ app.get("/campgrounds", function(req, res){
 });
 
 app.post("/campgrounds", function(req, res){
-	res.send("You hit the post route!")
 	// get data from form and add to campgrounds array
 	var name = req.body.name;
 	var image = req.body.image;
