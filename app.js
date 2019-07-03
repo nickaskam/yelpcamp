@@ -1,6 +1,15 @@
 var express = require("express");
 var app = express();
 var bodyParser = require("body-parser");
+const mongoose = require("mongoose");
+mongoose.connect('mongodb+srv://nick:Shoplifter5@yelpcampproject-pn3te.mongodb.net/test?retryWrites=true&w=majority', {
+	useNewUrlParser: true,
+	useCreateIndex: true
+}).then(() => {
+	console.log("Connected to DB!");
+}).catch(err => {
+	console.log('Error:', err.message);
+});
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
