@@ -2,7 +2,11 @@ var express = require("express");
 var app = express();
 var bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-mongoose.connect('mongodb+srv://nick:Shoplifter5@yelpcampproject-pn3te.mongodb.net/test?retryWrites=true&w=majority', {
+
+app.use(bodyParser.urlencoded({extended: true}));
+app.set("view engine", "ejs");
+
+mongoose.connect('mongodb+srv://nick:Shoplifter5@yelpcampproject-pn3te.mongodb.net/yelp_camp?retryWrites=true&w=majority', {
 	useNewUrlParser: true,
 	useCreateIndex: true
 }).then(() => {
@@ -11,21 +15,40 @@ mongoose.connect('mongodb+srv://nick:Shoplifter5@yelpcampproject-pn3te.mongodb.n
 	console.log('Error:', err.message);
 });
 
-app.use(bodyParser.urlencoded({extended: true}));
-app.set("view engine", "ejs");
+var campgroundSchema = new mongoose.Schema({
+	name: String,
+	image: String
+});
 
-var campgrounds = [
-	{name: "Grapevine Lake", image: "https://media.nbcdfw.com/images/652*367/Lake-Grapevine.jpg"},
-	{name: "Broken Bow", image: "https://upload.wikimedia.org/wikipedia/en/b/bd/Broken_bow_lake.jpg"},
-	{name: "White Rock Lake", image: "http://mediad.publicbroadcasting.net/p/kera/files/styles/x_large/public/201806/shutterstock_753593347.jpg"}
-];
+var Campground = mongoose.model("Camground", campgroundSchema);
+
+// Campground.create(
+// 	{
+// 		name: "White Rock Lake",
+// 		image: "http://mediad.publicbroadcasting.net/p/kera/files/styles/x_large/public/201806/shutterstock_753593347.jpg"
+// 	}, function(err, campground){
+// 		if(err){
+// 			console.log(err);
+// 		} else {
+// 			console.log("Newly Created Campground: ");
+// 			console.log(campground);
+// 		}
+// 	});
 
 app.get("/", function(req, res){
 	res.render("landing");
 });
 
 app.get("/campgrounds", function(req, res){
-	res.render("campgrounds",{campgrounds:campgrounds});
+	//res.render("campgrounds",{campgrounds:campgrounds});
+	//get all campgrounds from db
+	Campground.find({}, function(err, allCampgrounds){
+		if(err){
+			console.log(err);
+		} else {
+			res.render("campgrounds",{campgrounds:allCampgrounds});
+		}
+	})
 });
 
 app.post("/campgrounds", function(req, res){
