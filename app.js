@@ -39,6 +39,7 @@ app.get("/", function(req, res){
 	res.render("landing");
 });
 
+//view campgrounds
 app.get("/campgrounds", function(req, res){
 	//res.render("campgrounds",{campgrounds:campgrounds});
 	//get all campgrounds from db
@@ -48,7 +49,7 @@ app.get("/campgrounds", function(req, res){
 		} else {
 			res.render("campgrounds",{campgrounds:allCampgrounds});
 		}
-	})
+	});
 });
 
 app.post("/campgrounds", function(req, res){
