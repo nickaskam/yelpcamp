@@ -44,13 +44,12 @@ app.get("/", function(req, res){
 
 //view campgrounds
 app.get("/campgrounds", function(req, res){
-	//res.render("campgrounds",{campgrounds:campgrounds});
 	//get all campgrounds from db
 	Campground.find({}, function(err, allCampgrounds){
 		if(err){
 			console.log(err);
 		} else {
-			res.render("campgrounds",{campgrounds:allCampgrounds});
+			res.render("index",{campgrounds:allCampgrounds});
 		}
 	});
 });
