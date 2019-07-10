@@ -23,20 +23,20 @@ var campgroundSchema = new mongoose.Schema({
 
 var Campground = mongoose.model("Camground", campgroundSchema);
 
-Campground.create(
-	{
-		name: "White Rock Lake",
-		image: "http://mediad.publicbroadcasting.net/p/kera/files/styles/x_large/public/201806/shutterstock_753593347.jpg",
-		description: "This is a lake in Dallas"
+// Campground.create(
+// 	{
+// 		name: "White Rock Lake",
+// 		image: "http://mediad.publicbroadcasting.net/p/kera/files/styles/x_large/public/201806/shutterstock_753593347.jpg",
+// 		description: "This is a lake in Dallas"
 
-	}, function(err, campground){
-		if(err){
-			console.log(err);
-		} else {
-			console.log("Newly Created Campground: ");
-			console.log(campground);
-		}
-	});
+// 	}, function(err, campground){
+// 		if(err){
+// 			console.log(err);
+// 		} else {
+// 			console.log("Newly Created Campground: ");
+// 			console.log(campground);
+// 		}
+// 	});
 
 app.get("/", function(req, res){
 	res.render("landing");
@@ -74,7 +74,49 @@ app.get("/campgrounds/new", function(req, res){
 	res.render("new.ejs");
 });
 
+//SHOW -- shows more info about one campground
+app.get("/campgrounds/:id", function(req, res){
+	//find the campground with provided ID
+	//render show template with taht campground
+	res.render("show");
+});
+
 app.listen(process.env.PORT, process.env.IP, function(){
 	console.log("the yelpcamp server has started");
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
