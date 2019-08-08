@@ -16,6 +16,16 @@ mongoose.connect('mongodb+srv://nick:Shoplifter5@yelpcampproject-pn3te.mongodb.n
 	console.log('Error:', err.message);
 });
 
+var mongoose = require("mongoose");
+
+var campgroundSchema = new mongoose.Schema({
+	name: String,
+	image: String,
+	description: String
+});
+
+var Campground = mongoose.model("Camground", campgroundSchema);
+
 // Campground.create(
 // 	{
 // 		name: "White Rock Lake",
