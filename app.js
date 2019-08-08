@@ -1,6 +1,7 @@
-var express = require("express");
-var app = express();
-var bodyParser = require("body-parser");
+var express    = require("express"),
+	app        = express(),
+	bodyParser = require("body-parser"),
+	Campground = require("./models/campground")
 const mongoose = require("mongoose");
 
 app.use(bodyParser.urlencoded({extended: true}));
@@ -14,14 +15,6 @@ mongoose.connect('mongodb+srv://nick:Shoplifter5@yelpcampproject-pn3te.mongodb.n
 }).catch(err => {
 	console.log('Error:', err.message);
 });
-
-var campgroundSchema = new mongoose.Schema({
-	name: String,
-	image: String,
-	description: String
-});
-
-var Campground = mongoose.model("Camground", campgroundSchema);
 
 // Campground.create(
 // 	{
