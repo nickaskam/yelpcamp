@@ -2,7 +2,7 @@ var express    = require("express"),
 	app        = express(),
 	bodyParser = require("body-parser"),
     mongoose   = require("mongoose")
-	// Campground = require("./models/campground")
+	Campground = require("./models/campground")
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
@@ -16,15 +16,16 @@ mongoose.connect('mongodb+srv://nick:Shoplifter5@yelpcampproject-pn3te.mongodb.n
 	console.log('Error:', err.message);
 });
 
-var mongoose = require("mongoose");
+// var mongoose = require("mongoose");
 
-var campgroundSchema = new mongoose.Schema({
-	name: String,
-	image: String,
-	description: String
-});
+// var campgroundSchema = new mongoose.Schema({
+// 	name: String,
+// 	image: String,
+// 	description: String
+// });
 
-var Campground = mongoose.model("Camground", campgroundSchema);
+// //spelled campground wrong
+// var Campground = mongoose.model("Camground", campgroundSchema);
 
 // Campground.create(
 // 	{
