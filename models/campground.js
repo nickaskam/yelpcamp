@@ -7,3 +7,5 @@ var campgroundSchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model("Campground", campgroundSchema);
+
+console.log("testing");
