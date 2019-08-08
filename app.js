@@ -27,20 +27,20 @@ mongoose.connect('mongodb+srv://nick:Shoplifter5@yelpcampproject-pn3te.mongodb.n
 // //spelled campground wrong
 // var Campground = mongoose.model("Camground", campgroundSchema);
 
-// Campground.create(
-// 	{
-// 		name: "White Rock Lake",
-// 		image: "http://mediad.publicbroadcasting.net/p/kera/files/styles/x_large/public/201806/shutterstock_753593347.jpg",
-// 		description: "This is a lake in Dallas"
+Campground.create(
+	{
+		name: "White Rock Lake",
+		image: "http://mediad.publicbroadcasting.net/p/kera/files/styles/x_large/public/201806/shutterstock_753593347.jpg",
+		description: "This is a lake in Dallas"
 
-// 	}, function(err, campground){
-// 		if(err){
-// 			console.log(err);
-// 		} else {
-// 			console.log("Newly Created Campground: ");
-// 			console.log(campground);
-// 		}
-// 	});
+	}, function(err, campground){
+		if(err){
+			console.log(err);
+		} else {
+			console.log("Newly Created Campground: ");
+			console.log(campground);
+		}
+	});
 
 app.get("/", function(req, res){
 	res.render("landing");
