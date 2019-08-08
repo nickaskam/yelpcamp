@@ -2,7 +2,7 @@ var express    = require("express"),
 	app        = express(),
 	bodyParser = require("body-parser"),
     mongoose   = require("mongoose"),
-	Campground = require("./models/campground.js")
+	Campground = require("./campground")
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
