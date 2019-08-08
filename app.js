@@ -29,9 +29,9 @@ mongoose.connect('mongodb+srv://nick:Shoplifter5@yelpcampproject-pn3te.mongodb.n
 
 Campground.create(
 	{
-		name: "White Rock Lake",
-		image: "http://mediad.publicbroadcasting.net/p/kera/files/styles/x_large/public/201806/shutterstock_753593347.jpg",
-		description: "This is a lake in Dallas"
+		name: "Jacob's Well",
+		image: "https://media.mnn.com/assets/images/2016/03/Swimming_in_Jacob's_Well.jpg.653x0_q80_crop-smart.jpg",
+		description: "A big ole hole in Austin"
 
 	}, function(err, campground){
 		if(err){
