@@ -1,8 +1,9 @@
 var express    = require("express"),
 	app        = express(),
 	bodyParser = require("body-parser"),
-    mongoose   = require("mongoose")
-	Campground = require("./models/campground")
+    mongoose   = require("mongoose"),
+	Campground = require("./models/campground"),
+	seed       = require("./seeds.js")
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
@@ -27,20 +28,20 @@ mongoose.connect('mongodb+srv://nick:Shoplifter5@yelpcampproject-pn3te.mongodb.n
 // //spelled campground wrong
 // var Campground = mongoose.model("Camground", campgroundSchema);
 
-Campground.create(
-	{
-		name: "Jacob's Well",
-		image: "https://media.mnn.com/assets/images/2016/03/Swimming_in_Jacob's_Well.jpg.653x0_q80_crop-smart.jpg",
-		description: "A big ole hole in Austin"
+// Campground.create(
+// 	{
+// 		name: "Jacob's Well",
+// 		image: "https://media.mnn.com/assets/images/2016/03/Swimming_in_Jacob's_Well.jpg.653x0_q80_crop-smart.jpg",
+// 		description: "A big ole hole in Austin"
 
-	}, function(err, campground){
-		if(err){
-			console.log(err);
-		} else {
-			console.log("Newly Created Campground: ");
-			console.log(campground);
-		}
-	});
+// 	}, function(err, campground){
+// 		if(err){
+// 			console.log(err);
+// 		} else {
+// 			console.log("Newly Created Campground: ");
+// 			console.log(campground);
+// 		}
+// 	});
 
 app.get("/", function(req, res){
 	res.render("landing");
