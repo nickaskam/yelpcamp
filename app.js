@@ -3,7 +3,7 @@ var express    = require("express"),
 	bodyParser = require("body-parser"),
     mongoose   = require("mongoose"),
 	Campground = require("./models/campground"),
-	seed       = require("./seeds.js")
+	seedDB     = require("./seeds")
 
 seedDB();
 app.use(bodyParser.urlencoded({extended: true}));
