@@ -5,6 +5,7 @@ var express    = require("express"),
 	Campground = require("./models/campground"),
 	seed       = require("./seeds.js")
 
+seedDB();
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 
