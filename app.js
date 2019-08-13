@@ -18,32 +18,6 @@ mongoose.connect('mongodb+srv://nick:Shoplifter5@yelpcampproject-pn3te.mongodb.n
 	console.log('Error:', err.message);
 });
 
-// var mongoose = require("mongoose");
-
-// var campgroundSchema = new mongoose.Schema({
-// 	name: String,
-// 	image: String,
-// 	description: String
-// });
-
-// //spelled campground wrong
-// var Campground = mongoose.model("Camground", campgroundSchema);
-
-// Campground.create(
-// 	{
-// 		name: "Jacob's Well",
-// 		image: "https://media.mnn.com/assets/images/2016/03/Swimming_in_Jacob's_Well.jpg.653x0_q80_crop-smart.jpg",
-// 		description: "A big ole hole in Austin"
-
-// 	}, function(err, campground){
-// 		if(err){
-// 			console.log(err);
-// 		} else {
-// 			console.log("Newly Created Campground: ");
-// 			console.log(campground);
-// 		}
-// 	});
-
 app.get("/", function(req, res){
 	res.render("landing");
 });
@@ -83,10 +57,11 @@ app.get("/campgrounds/new", function(req, res){
 //SHOW -- shows more info about one campground
 app.get("/campgrounds/:id", function(req, res){
 	//find the campground with provided ID
-	Campground.findById(req.params.id, function(err, foundCampground){
+	Campground.findById(req.params.id).populate("comments").exec(function(err, foundCampground){
 		if(err){
 			console.log(err);
 		} else {
+			console.log(foundCampground);
 			//render show template with that campground
 			res.render("show", {campground: foundCampground});
 		}
