@@ -9,7 +9,7 @@ var express    = require("express"),
 seedDB();
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
-app.use(express.static(__dirname + "public"));
+app.use(express.static(__dirname + "/public"));
 
 mongoose.connect('mongodb+srv://nick:Shoplifter5@yelpcampproject-pn3te.mongodb.net/yelp_camp?retryWrites=true&w=majority', {
 	useNewUrlParser: true,
